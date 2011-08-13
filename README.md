@@ -22,6 +22,13 @@ The following events are provided:
 
 * `fullscreen-on` is triggered when the browser enters fullscreen;
 * `fullscreen-off` is triggered when the browser exits fullscreen.
+* `fullscreen-key` is triggered when detecting pressing the shortcut key for toggling the browser's fullscreen state (working only on Chrome and Firefox). The event handling function takes the following form:
+
+        $(window).bind("fullscreen-key", function(e, shortcut, longform) {
+            ...
+        });
+
+    where `shortcut` represents the pressed keys as a `string` value, and `longform` represents its longform textual representation;
 
 If you need to check the current fullscreen state, grab the `fullscreen-state` data property from the `window` object, as follows:
 

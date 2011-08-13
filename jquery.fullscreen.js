@@ -110,6 +110,12 @@
                 ;
             }
         })
+        .keydown(function(e) {
+            var key = keys[BrowserDetect.browser][BrowserDetect.OS];
+
+            if (key && e.ctrlKey == key.ctrlKey && e.altKey == key.altKey && e.metaKey == key.metaKey && e.shiftKey == key.shiftKey && e.which == key.which)
+                $window.trigger('fullscreen-key', [key.string, key.alt]);
+        })
     ;
 
 })(jQuery, this, document.documentElement, screen.height, screen.width);
