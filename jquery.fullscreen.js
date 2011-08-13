@@ -90,8 +90,12 @@
         ,$window = $(window)
     ;
     
+    var thisKeys = keys[BrowserDetect.browser][BrowserDetect.OS];
+    var shortcut = { shortcut: thisKeys.string, longform: thisKeys.alt };
+
     $window
         .data('fullscreen-state', isFullScreen())
+        .data('fullscreen-key',   shortcut)
         .resize(function() {
             var fullscreenState = isFullScreen();
             
@@ -111,10 +115,8 @@
             }
         })
         .keydown(function(e) {
-            var key = keys[BrowserDetect.browser][BrowserDetect.OS];
-
-            if (key && e.ctrlKey == key.ctrlKey && e.altKey == key.altKey && e.metaKey == key.metaKey && e.shiftKey == key.shiftKey && e.which == key.which)
-                $window.trigger('fullscreen-key', [key.string, key.alt]);
+            if (thisKeys && e.ctrlKey == thisKeys.ctrlKey && e.altKey == thisKeys.altKey && e.metaKey == thisKeys.metaKey && e.shiftKey == thisKeys.shiftKey && e.which == thisKeys.which)
+                $window.trigger('fullscreen-key', [thisKeys.string, thisKeys.alt]);
         })
     ;
 
