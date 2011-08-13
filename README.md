@@ -34,7 +34,7 @@ If you need to check the current fullscreen state, grab the `fullscreen-state` d
 
     var isFullScreen = $(window).data('fullscreen-state');
 
-If you need to check the shortcut key and corresponding longform, grab the `fullscreen-key`data property from the `window` object, as follows:
+If you need to check the shortcut key and corresponding longform, grab the `fullscreen-key` data property from the `window` object, as follows:
 
     var data = $(window).data('fullscreen-keys'); // returns an object in the form of { shortcut: "...", longform: "..." }
 
