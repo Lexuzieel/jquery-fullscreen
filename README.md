@@ -33,4 +33,4 @@ The `example.html` document details examples for all events.
 # Caveats
 
 * There is no cross-browser way to programmatically trigger the fullscreen state.
-* This has only been tested in Safari (OS X), Google Chrome, and Firefox. Support for more browsers is coming soon.
+* This has only been tested in Safari (OS X), Google Chrome, Opera, and Firefox. Support for more browsers is coming soon.
