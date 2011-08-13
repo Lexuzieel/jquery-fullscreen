@@ -43,7 +43,6 @@
         dataOS : [
             { string: navigator.platform,  subString: "Win",    identity: "Windows"     },
             { string: navigator.platform,  subString: "Mac",    identity: "Mac"         },
-            { string: navigator.userAgent, subString: "iPhone", identity: "iPhone/iPod" },
             { string: navigator.platform,  subString: "Linux",  identity: "Linux"       }
         ]
 
@@ -53,6 +52,32 @@
     // Browser name: BrowserDetect.browser
     // Browser version: BrowserDetect.version
     // OS name: BrowserDetect.OS
+    
+    // here are major browsers' keyboard mapping for triggering fullscreen on/off
+    var keys = {
+        "MSIE": {
+            "Windows": { ctrlKey: false, altKey: false, metaKey: false, shiftKey: false, which: 122, string: "F11",               alt: "F11"               }
+        },
+        "Firefox": {
+            "Windows": { ctrlKey: false, altKey: false, metaKey: false, shiftKey: false, which: 122, string: "F11",               alt: "F11"               },
+            "Linux":   { ctrlKey: false, altKey: false, metaKey: false, shiftKey: false, which: 122, string: "F11",               alt: "F11"               },
+            "Mac":     { ctrlKey: false, altKey: false, metaKey: true,  shiftKey: true,  which:  70, string: "&#x21E7;&#x2318;F", alt: "Shift+Command+F"   }
+        },
+        "Chrome": {
+            "Windows": { ctrlKey: false, altKey: false, metaKey: false, shiftKey: false, which: 122, string: "F11",               alt: "F11"               },
+            "Linux":   { ctrlKey: false, altKey: false, metaKey: false, shiftKey: false, which: 122, string: "F11",               alt: "F11"               },
+            "Mac":     { ctrlKey: false, altKey: false, metaKey: true,  shiftKey: true,  which:  70, string: "&#x21E7;&#x2318;F", alt: "Shift+Command+F"   }
+        },
+        "Safari": { // still missing Safari on Windows... help!
+            "Mac":     { ctrlKey: true,  altKey: false, metaKey: false, shiftKey: true,  which:  70, string: "^&#x2318;F",        alt: "Control+Command+F" }
+        },
+        "Opera": {
+            "Windows": { ctrlKey: false, altKey: false, metaKey: false, shiftKey: false, which: 122, string: "F11",               alt: "F11"               },
+            "Linux":   { ctrlKey: false, altKey: false, metaKey: false, shiftKey: false, which: 122, string: "F11",               alt: "F11"               },
+            "Mac":     { ctrlKey: false, altKey: false, metaKey: true,  shiftKey: true,  which:  70, string: "&#x2325;F11",       alt: "Alt+F11"           }
+        },
+
+    };
 
     var 
         isFullScreen = function() {
