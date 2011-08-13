@@ -83,7 +83,8 @@
         isFullScreen = function() {
             return (documentElement.clientHeight == height && documentElement.clientWidth == width) ||
                 window.fullScreen ||
-                (window.outerHeight == height && window.outerWidth == width)
+                (window.outerHeight == height && window.outerWidth == width) ||
+                (BrowserDetect.browser == "Safari" && window.outerHeight == (height - 40) && window.outerWidth == width)
             ;
         }
         ,$window = $(window)
