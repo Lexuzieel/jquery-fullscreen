@@ -6,7 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="jquery.fullscreen.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript" charset="utf-8">
-            var textToggle = function(text) { $("#toggle").text("toggle to " + text); };
+            var textToggle = function(text) { $("#toggle").text("currently at " + text); };
             var textState  = function(text) { $("#state").text(text);  };
 
             $(window).bind('fullscreen-toggle', function(e, state) { textToggle(state);       });
